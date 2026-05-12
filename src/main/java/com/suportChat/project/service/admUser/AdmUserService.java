@@ -1,4 +1,4 @@
-package com.suportChat.project.service.AdmUser;
+package com.suportChat.project.service.admUser;
 
 import com.suportChat.project.model.repository.AdmUserRepository;
 
