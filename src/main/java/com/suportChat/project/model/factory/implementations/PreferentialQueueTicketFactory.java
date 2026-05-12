@@ -10,7 +10,7 @@ import java.util.Random;
 public class PreferentialQueueTicketFactory implements QueueTicketFactory {
 
     @Override
-    public void createTicket(String name) {
+    public QueueTicket createTicket(String name) {
         QueueTicket queueTicket = new QueueTicket();
         queueTicket.setName(name);
         queueTicket.setPriority(1);
@@ -18,6 +18,8 @@ public class PreferentialQueueTicketFactory implements QueueTicketFactory {
         queueTicket.setLocalDateTime(LocalDateTime.now());
         queueTicket.setQueuTickerEnum(QueuTickerEnum.PREFERENTIAL);
 
+
+        return queueTicket;
     }
 
 

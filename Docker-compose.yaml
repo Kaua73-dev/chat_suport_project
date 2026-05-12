@@ -9,8 +9,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: chat_support_db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
 
     ports:
       - "3307:3306"

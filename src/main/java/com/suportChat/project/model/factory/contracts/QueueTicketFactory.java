@@ -1,7 +1,9 @@
 package com.suportChat.project.model.factory.contracts;
 
+import com.suportChat.project.model.entity.QueueTicket;
+
 public interface QueueTicketFactory {
 
-    void createTicket(String name);
+    QueueTicket createTicket(String name);
 
 }
