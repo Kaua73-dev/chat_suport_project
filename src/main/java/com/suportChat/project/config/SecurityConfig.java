@@ -40,8 +40,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
 
-                        .requestMatchers(HttpMethod.GET, "/queue/next").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/queue/finish").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/queue/next").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/queue/finish").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/queue/createTicket").permitAll()
 
                         .anyRequest().authenticated()

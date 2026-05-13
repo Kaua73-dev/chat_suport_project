@@ -12,7 +12,7 @@ import com.suportChat.project.service.queueTicket.QueueTicketService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(name="/queue")
+@RequestMapping("/queue")
 public class QueueTicketController {
 
     private final QueueTicketService queueTicketService;
@@ -39,24 +39,27 @@ public class QueueTicketController {
     }
 
     @PostMapping("/createTicket")
-    public void createTicket(@RequestBody QueueTicketRequest request){
+    public QueueTicket createTicket(@RequestBody QueueTicketRequest request){
 
+        QueueTicket ticket;
 
         if(request.queuTickerEnum().equals(QueuTickerEnum.PCD)){
-            QueueTicket ticket =
+            ticket =
             pcdQueueTicketFactory.createTicket(request.name());
             queueTicketService.addToQueue(ticket);
 
         } else if(request.queuTickerEnum().equals(QueuTickerEnum.PREFERENTIAL)){
-            QueueTicket ticket =
+            ticket =
                     preferentialQueueTicketFactory.createTicket(request.name());
             queueTicketService.addToQueue(ticket);
 
         } else {
-            QueueTicket ticket =
+            ticket =
                     defaultQueueTicketFactory.createTicket(request.name());
             queueTicketService.addToQueue(ticket);
         }
+
+        return ticket;
 
     }
 
