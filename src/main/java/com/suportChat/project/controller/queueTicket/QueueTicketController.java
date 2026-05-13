@@ -38,7 +38,7 @@ public class QueueTicketController {
         queueTicketService.finish();
     }
 
-    @PostMapping("/preferential")
+    @PostMapping("/createTicket")
     public void createTicket(@RequestBody QueueTicketRequest request){
 
 

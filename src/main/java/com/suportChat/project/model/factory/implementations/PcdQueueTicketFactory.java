@@ -3,10 +3,12 @@ package com.suportChat.project.model.factory.implementations;
 import com.suportChat.project.model.entity.QueueTicket;
 import com.suportChat.project.model.factory.contracts.QueueTicketFactory;
 import com.suportChat.project.model.roles.QueuTickerEnum;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.Random;
 
+@Component
 public class PcdQueueTicketFactory implements QueueTicketFactory {
 
     @Override
