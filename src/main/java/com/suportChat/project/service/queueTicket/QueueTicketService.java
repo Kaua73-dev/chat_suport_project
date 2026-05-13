@@ -3,10 +3,11 @@ package com.suportChat.project.service.queueTicket;
 import com.suportChat.project.exception.queue.QueueAlreadyExistServiceException;
 import com.suportChat.project.exception.queue.QueueNoServiceException;
 import com.suportChat.project.model.entity.QueueTicket;
-
+import org.springframework.stereotype.Service;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+@Service
 public class QueueTicketService {
 
 
