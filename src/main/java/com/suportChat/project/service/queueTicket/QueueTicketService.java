@@ -38,7 +38,7 @@ public class QueueTicketService {
         current = null;
     }
 
-    public void add(QueueTicket ticket){
+    public void addToQueue(QueueTicket ticket){
         // adding to queue
         queueTickets.add(ticket);
     }
