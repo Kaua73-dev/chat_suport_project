@@ -9,6 +9,7 @@ import com.suportChat.project.exception.admUser.AdmUserAlreadyExistException;
 import com.suportChat.project.exception.admUser.AdmUserNotFoundException;
 import com.suportChat.project.model.entity.AdmUser;
 import com.suportChat.project.model.repository.AdmUserRepository;
+import com.suportChat.project.model.roles.AdmUserEnum;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -56,14 +57,16 @@ public class AdmUserService {
 
 
     public AdmUserRegisterResponse register(AdmUserRegisterRequest request){
-        if(admUserRepository.findByEmail(request.email()).isPresent()){
+         if(admUserRepository.findByEmail(request.email()).isPresent()){
             throw new AdmUserAlreadyExistException();
-        }
+         }
 
         AdmUser admUser = new AdmUser();
         admUser.setName(request.name());
         admUser.setEmail(request.email());
+        admUser.setAdmUserEnum(AdmUserEnum.USER);
         admUser.setPassword(passwordEncoder.encode(request.password()));
+        admUserRepository.save(admUser);
 
         return toResponse(request);
     }

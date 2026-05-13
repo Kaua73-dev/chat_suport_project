@@ -1,4 +1,6 @@
 package com.suportChat.project.dto.request;
 
-public record AdmUserRegisterRequest(String name, String email, String password) {
+import com.suportChat.project.model.roles.AdmUserEnum;
+
+public record AdmUserRegisterRequest(String name, String email, String password, AdmUserEnum admUserEnum) {
 }

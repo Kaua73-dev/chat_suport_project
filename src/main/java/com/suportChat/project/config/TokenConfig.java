@@ -44,7 +44,6 @@ public class TokenConfig {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
 
-
             return JWT.require(algorithm)
                     .build()
                     .verify(token)

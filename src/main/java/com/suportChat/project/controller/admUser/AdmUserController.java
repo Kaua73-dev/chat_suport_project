@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(name="/auth")
+@RequestMapping("/auth")
 public class AdmUserController {
 
     private final AdmUserService admUserService;
@@ -21,12 +21,12 @@ public class AdmUserController {
         this.admUserService = admUserService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/login")
     public AdmUserTokenResponse login(@RequestBody AdmUserLoginRequest request){
         return admUserService.login(request);
     }
 
-    @PostMapping("/login")
+    @PostMapping("/register")
     public AdmUserRegisterResponse register(@RequestBody AdmUserRegisterRequest request){
         return admUserService.register(request);
     }

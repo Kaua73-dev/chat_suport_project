@@ -29,7 +29,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         String path = request.getServletPath();
 
         // Rotas public
-        return (path.equals("auth/register") || path.equals("auth/login"));
+        return (path.startsWith("/auth/login") || path.startsWith("/auth/register"));
 
     }
 
@@ -42,7 +42,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         try {
             String email = tokenConfig.validateToken(token);
 
-            if(email != null && SecurityContextHolder.getContext().getAuthentication() == null){
+            if(email != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                 var userOptional = admUserRepository.findByEmail(email);
 
                 if(userOptional.isPresent()){
