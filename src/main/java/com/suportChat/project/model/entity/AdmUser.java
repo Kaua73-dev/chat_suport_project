@@ -41,8 +41,7 @@ public class AdmUser implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = List.of(
-                new SimpleGrantedAuthority("ROLE_" + AdmUserEnum.USER));
-                new SimpleGrantedAuthority("ROLE_" + AdmUserEnum.ADM);
+                new SimpleGrantedAuthority("ROLE_" + admUserEnum.name()));
         return authorities;
     }
 
